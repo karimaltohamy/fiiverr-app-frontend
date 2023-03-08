@@ -1,0 +1,118 @@
+.hero {
+  height: 700px;
+  background-color: #013914;
+  background-image: url("../../assets/images/bg-hero-4-1792-x1.webp");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: slide 20s infinite;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+
+    .left {
+      width: 50%;
+      color: white;
+
+      h1 {
+        font-size: 42px;
+        line-height: 1.2;
+        margin-bottom: 15px;
+
+        em {
+          font-weight: 300;
+          font-family: "Montserrat", sans-serif;
+        }
+      }
+
+      .search {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+
+        .input {
+          height: 50px;
+          background-color: white;
+          padding: 0 15px;
+          border-top-left-radius: 6px;
+          border-bottom-left-radius: 6px;
+          flex: 1;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          svg {
+            width: 25px !important;
+            color: gray;
+          }
+
+          input {
+            border: none;
+            background-color: transparent;
+            height: 100%;
+            width: 100%;
+            font-size: 17px;
+            font-weight: 500;
+          }
+        }
+
+        button {
+          background-color: rgb(22 163 74);
+          color: white;
+          font-size: 17px;
+          font-weight: 500;
+          height: 50px;
+          width: 75px;
+          border-top-right-radius: 6px;
+          border-bottom-right-radius: 6px;
+          display: block;
+          border: none;
+        }
+      }
+
+      .popular {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        span {
+          font-family: 600;
+          font-size: 15px;
+        }
+
+        .item {
+          border: 1px solid white;
+          padding: 4px 10px;
+          border-radius: 50px;
+          font-weight: 600;
+          font-size: 15px;
+          line-height: 15px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slide {
+  25% {
+    background-image: url("../../assets/images/bg-hero-4-1792-x1.webp");
+    opacity: 1;
+  }
+
+  50% {
+    background-image: url("../../assets/images/bg-hero-2-1792-x1.webp");
+    opacity: 1;
+  }
+
+  75% {
+    background-image: url("../../assets/images/bg-hero-5-1792-x1.webp");
+    opacity: 1;
+  }
+  15% {
+    background-image: url("../../assets/images/bg-hero-6-1792-x1.webp");
+    opacity: 1;
+  }
+}

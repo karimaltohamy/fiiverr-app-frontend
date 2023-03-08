@@ -1,0 +1,107 @@
+@use "../../scss/index";
+
+.navbar {
+  background-color: transparent;
+  color: white;
+  padding: 8px 0;
+  transition: 0.5s all ease;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+
+  &.active {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    color: #333;
+  }
+
+  .container {
+    .nav-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+
+      .logo {
+        font-weight: 600;
+        font-size: 28px;
+
+        span {
+          color: rgb(22 163 74);
+        }
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        a {
+          font-weight: 500;
+
+          .join {
+            padding: 8px;
+            background-color: transparent;
+            border: 1px solid white;
+            border-radius: 6px;
+            color: white;
+            font-weight: 600;
+
+            &.active {
+              border-color: rgb(22 163 74);
+              color: rgb(22 163 74);
+            }
+          }
+        }
+
+        .currentUser {
+          position: relative;
+          .info-user {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+
+            img {
+              width: 32px;
+              height: 32px;
+              object-fit: cover;
+              border-radius: 50%;
+            }
+          }
+
+          .list-user {
+            width: 200px;
+            position: absolute;
+            right: 0;
+            top: 40px;
+            background-color: white;
+            color: gray;
+            border: 1px solid #d6d6d6;
+            padding: 12px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: 2px 3px 6px rgb(187 187 187);
+          }
+        }
+      }
+    }
+
+    .nav-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-top: 1px solid #d6d6d6;
+      border-bottom: 1px solid #d6d6d6;
+
+      .div {
+        color: gray;
+      }
+    }
+  }
+}

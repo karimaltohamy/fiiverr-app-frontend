@@ -1,8 +1,18 @@
-import React from "react";
+import React, { Fragment } from "react";
+import Hero from "../../components/hero/Hero";
 import "./home.scss";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <Fragment>
+      <Hero />
+      <div className="trusted-by-wrapper">
+        <div className="container">
+          <div className="content"></div>
+        </div>
+      </div>
+    </Fragment>
+  );
 };
 
 export default Home;

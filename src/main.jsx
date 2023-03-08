@@ -9,10 +9,10 @@ import Orders from "./pages/orders/Orders";
 import MessagesTable from "./pages/messagesTable/MessageTable";
 import AddGig from "./pages/addGig/AddGig";
 import Messages from "./pages/messages/Messages";
-
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import "./index.scss";
 
 const Layout = () => {
   return (
