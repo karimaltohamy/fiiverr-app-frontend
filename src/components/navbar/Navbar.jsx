@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./navbar.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
   const [openList, setOpenList] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -19,9 +20,9 @@ const Navbar = () => {
   };
 
   return (
-    <div className={`navbar ${active ? "active" : ""}`}>
-      <div className="container">
-        <div className="nav-top">
+    <div className={`navbar ${active || pathname !== "/" ? "active" : ""}`}>
+      <div className="nav-top">
+        <div className="container">
           <Link to={"/"} className="logo">
             Fiverr
             <span>.</span>
@@ -65,8 +66,11 @@ const Navbar = () => {
             )}
           </div>
         </div>
-        {active && (
-          <div className="nav-bottom">
+      </div>
+
+      {active || pathname !== "/" ? (
+        <div className="nav-bottom">
+          <div className="container">
             <div>Graphics & Design</div>
             <div>Digital Marketing</div>
             <div>Writing & Translation</div>
@@ -77,8 +81,10 @@ const Navbar = () => {
             <div>Lifestyle</div>
             <div>AI Services</div>
           </div>
-        )}
-      </div>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

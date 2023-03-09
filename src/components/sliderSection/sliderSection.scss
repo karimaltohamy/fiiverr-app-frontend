@@ -3,8 +3,17 @@
   justify-content: center;
   padding: 100px 0px;
 
+  h1 {
+    margin-bottom: 20px;
+    color: #444;
+  }
+
   .carousel-initialized {
     position: relative;
+  }
+
+  .carousel-track {
+    height: 370px !important;
   }
 
   .carousel-row {

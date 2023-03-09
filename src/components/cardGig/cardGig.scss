@@ -1,0 +1,77 @@
+.card-gig {
+  border: 1px solid lightgray;
+  width: 310px;
+
+  > img {
+    width: 100%;
+    height: 50%;
+  }
+
+  .inner-wrapper {
+    padding: 15px 12px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    img {
+      width: 32px;
+      height: 32px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    span {
+      font-size: 15px;
+      font-weight: 500;
+    }
+  }
+
+  .desc-card {
+    color: #333 !important;
+    padding: 5px 12px;
+    font-size: 17px;
+  }
+
+  .rating {
+    padding: 5px 12px 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #ffbe5b;
+    font-weight: 500;
+
+    svg {
+      width: 20px;
+    }
+
+    span {
+      color: gray;
+      font-size: 14px;
+    }
+  }
+
+  .footer-card {
+    border-top: 1px solid lightgray;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    svg {
+      width: 22px;
+      color: #adadad;
+    }
+
+    p {
+      color: gray;
+      font-size: 14px;
+
+      span {
+        padding-left: 8px;
+        font-size: 18px;
+        font-weight: 500;
+        color: #333;
+      }
+    }
+  }
+}

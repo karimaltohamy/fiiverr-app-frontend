@@ -1,0 +1,95 @@
+.gigs {
+  padding: 20px 0;
+  .container {
+    .path {
+      color: gray;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      svg {
+        width: 20px;
+      }
+    }
+
+    .head-title {
+      margin: 10px 0;
+    }
+
+    .desc {
+      font-size: 15px;
+      color: gray;
+    }
+
+    .row-inputs {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 20px 0;
+
+      .budget {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        span {
+          color: gray;
+          font-size: 15px;
+        }
+
+        input {
+          border: 1px solid #c3c3c3;
+          padding: 4px 10px;
+          border-radius: 5px;
+          outline: none;
+        }
+
+        .btn-apply {
+          background-color: #1dbf73;
+          border: none;
+          border-radius: 5px;
+          padding: 5px 12px;
+          color: white;
+          cursor: pointer;
+        }
+      }
+
+      .sort {
+        position: relative;
+
+        p {
+          color: gray;
+          font-size: 17px;
+          cursor: pointer;
+
+          span {
+            color: black;
+            font-weight: 500;
+          }
+        }
+
+        .list-sort {
+          position: absolute;
+          top: 30px;
+          right: 0;
+          background-color: white;
+          color: #444;
+          border: 1px solid lightgray;
+          border-radius: 6px;
+          padding: 13px;
+          width: 160px;
+
+          li {
+            list-style: none;
+            cursor: pointer;
+
+            &:not(:last-child) {
+              margin-bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

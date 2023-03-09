@@ -3,7 +3,7 @@
 .navbar {
   background-color: transparent;
   color: white;
-  padding: 8px 0;
+  padding: 8px 0 0;
   transition: 0.5s all ease;
   position: fixed;
   top: 0;
@@ -17,12 +17,12 @@
     color: #333;
   }
 
-  .container {
-    .nav-top {
+  .nav-top {
+    .container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 0;
+      padding: 10px 20px;
 
       .logo {
         font-weight: 600;
@@ -90,14 +90,16 @@
         }
       }
     }
+  }
 
-    .nav-bottom {
+  .nav-bottom {
+    border-top: 1px solid #d6d6d6;
+    border-bottom: 1px solid #d6d6d6;
+    .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 0;
-      border-top: 1px solid #d6d6d6;
-      border-bottom: 1px solid #d6d6d6;
+      padding: 10px 20px;
 
       .div {
         color: gray;
