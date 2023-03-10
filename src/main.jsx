@@ -46,7 +46,7 @@ const router = createBrowserRouter([
         element: <Gigs />,
       },
       {
-        path: "gig",
+        path: "gigs/:id",
         element: <Gig />,
       },
       {

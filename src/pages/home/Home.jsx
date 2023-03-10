@@ -43,11 +43,13 @@ const Home = () => {
         </div>
       </div>
       <div className="Popular-services">
-        <SliderSection slidesToShow={5} arrowsScroll={5}>
-          {cards.map((card) => {
-            return <CardSlider card={card} />;
-          })}
-        </SliderSection>
+        <div className="container">
+          <SliderSection slidesToShow={5} arrowsScroll={5} className={"w-100"}>
+            {cards.map((card, index) => {
+              return <CardSlider key={index} card={card} />;
+            })}
+          </SliderSection>
+        </div>
       </div>
       <div className="selling-proposition">
         <div className="container">
@@ -275,9 +277,10 @@ const Home = () => {
             slidesToShow={4}
             arrowsScroll={4}
             title={"Get inspired with projects made by our freelancers"}
+            className={"w-100"}
           >
-            {projects.map((project) => {
-              return <ProjectCard project={project} />;
+            {projects.map((project, index) => {
+              return <ProjectCard key={index} project={project} />;
             })}
           </SliderSection>
         </div>

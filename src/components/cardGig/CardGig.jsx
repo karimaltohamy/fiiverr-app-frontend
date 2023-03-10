@@ -1,23 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./cardGig.scss";
 
-const CardGig = () => {
+const CardGig = ({ gig }) => {
   return (
-    <div className="card-gig">
-      <img
-        src="https://images.pexels.com/photos/580151/pexels-photo-580151.jpeg?auto=compress&cs=tinysrgb&w=1600"
-        alt=""
-      />
+    <Link to={"/gigs/123"} className="card-gig">
+      <img src={gig.img} alt="" />
       <div className="inner-wrapper">
-        <img
-          src="https://images.pexels.com/photos/720598/pexels-photo-720598.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          alt=""
-        />
-        <span>Anna Bell</span>
+        <img src={gig.pp} alt="" />
+        <span>{gig.username}</span>
       </div>
-      <p className="desc-card">
-        I will create ai art character from your images and prompts
-      </p>
+      <p className="desc-card">{gig.desc}</p>
       <div className="rating">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +24,7 @@ const CardGig = () => {
             clipRule="evenodd"
           />
         </svg>
-        4.5
+        {gig.star}
         <span>(20)</span>
       </div>
       <div className="footer-card">
@@ -45,10 +38,10 @@ const CardGig = () => {
         </svg>
         <p>
           STARTING AT
-          <span>US$20</span>
+          <span>US${gig.price}</span>
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 

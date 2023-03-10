@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React, { useState } from "react";
 import CardGig from "../../components/cardGig/CardGig";
 import { gigs } from "../../data";
@@ -11,6 +12,7 @@ const Gigs = () => {
     setSortBy(type);
     setListSort(false);
   };
+
   return (
     <div className="gigs">
       <div className="container">
@@ -65,8 +67,8 @@ const Gigs = () => {
           </div>
         </div>
         <div className="cards-gig">
-          {gigs.map((gig) => {
-            <CardGig gig={gig} />;
+          {gigs.map((gig, index) => {
+            return <CardGig gig={gig} key={index} />;
           })}
         </div>
       </div>
