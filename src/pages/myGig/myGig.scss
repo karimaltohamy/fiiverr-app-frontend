@@ -1,4 +1,4 @@
-.orders {
+.my-gig {
   margin: 30px 0;
 
   .head {
@@ -42,18 +42,12 @@
 
           button {
             border: none;
+            background-color: transparent;
             cursor: pointer;
-            background-color: #0075eb;
-            border-radius: 50%;
-            width: 28px;
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
 
             svg {
-              width: 22px;
-              color: white;
+              width: 24px;
+              color: #e9000ee0;
             }
           }
         }

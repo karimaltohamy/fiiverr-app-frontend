@@ -13,6 +13,7 @@ import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./index.scss";
+import MyGig from "./pages/myGig/MyGig";
 
 const Layout = () => {
   return (
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: "messages",
         element: <Messages />,
+      },
+      {
+        path: "myGig",
+        element: <MyGig />,
       },
     ],
   },
