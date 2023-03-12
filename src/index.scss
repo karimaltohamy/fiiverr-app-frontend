@@ -28,3 +28,16 @@ img {
 .w-100 {
   width: 100%;
 }
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: rgb(223, 223, 223);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 30px;
+}

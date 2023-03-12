@@ -8,7 +8,7 @@ import Gig from "./pages/gig/Gig";
 import Orders from "./pages/orders/Orders";
 import MessagesTable from "./pages/messagesTable/MessageTable";
 import AddGig from "./pages/addGig/AddGig";
-import Messages from "./pages/messages/Messages";
+import Message from "./pages/message/Message";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
@@ -63,8 +63,8 @@ const router = createBrowserRouter([
         element: <AddGig />,
       },
       {
-        path: "messages",
-        element: <Messages />,
+        path: "message",
+        element: <Message />,
       },
       {
         path: "myGig",
