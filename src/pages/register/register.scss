@@ -1,0 +1,31 @@
+.register {
+  margin: 50px 0;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+    .left,
+    .right {
+      flex: 1;
+
+      h1 {
+        color: gray;
+        margin-bottom: 30px;
+        font-size: 32px;
+      }
+    }
+
+    .btn-register {
+      width: 100%;
+      color: white;
+      height: 40px;
+      background-color: #1dbf73;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 16px;
+      border: none;
+    }
+  }
+}

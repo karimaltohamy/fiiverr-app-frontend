@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "./navbar.scss";
 import { Link, useLocation } from "react-router-dom";
 
@@ -55,10 +55,14 @@ const Navbar = () => {
                 </div>
                 {openList && (
                   <div className="list-user" onClick={() => setOpenList(false)}>
-                    <Link to={"/gigs"}>Gigs</Link>
-                    <Link to={"/addGig"}>Add New Gig</Link>
+                    {currentUser.isSeller && (
+                      <Fragment>
+                        <Link to={"/gigs"}>Gigs</Link>
+                        <Link to={"/addGig"}>Add New Gig</Link>
+                      </Fragment>
+                    )}
                     <Link to={"/orders"}>Orders</Link>
-                    <Link to={"/messages"}>Messages</Link>
+                    <Link to={"/messagesTable"}>Messages</Link>
                     <Link>Logout</Link>
                   </div>
                 )}

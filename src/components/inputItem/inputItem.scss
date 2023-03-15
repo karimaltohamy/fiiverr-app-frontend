@@ -1,0 +1,28 @@
+.input-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  label {
+    font-size: 18px;
+    color: gray;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 3px;
+  }
+
+  .long-desc {
+    height: 270px;
+  }
+
+  .short-desc {
+    height: 100px;
+  }
+}
