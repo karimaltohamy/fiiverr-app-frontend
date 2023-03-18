@@ -1,16 +1,46 @@
 /* eslint-disable react/jsx-key */
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useQuery } from "react-query";
+import { useLocation } from "react-router-dom";
 import CardGig from "../../components/cardGig/CardGig";
-import { gigs } from "../../data";
+import newRequest from "../../utils/newRequest";
 import "./gigs.scss";
 
 const Gigs = () => {
   const [listSort, setListSort] = useState(false);
-  const [sortBy, setSortBy] = useState("Best Selling");
+  const [sortBy, setSortBy] = useState("sales");
+  const minRef = useRef();
+  const maxRef = useRef();
+  const { search } = useLocation();
+  const [data, setData] = useState(undefined);
+  const [error, setError] = useState();
+
+  const getGigs = () => {
+    try {
+      newRequest
+        .get(
+          `/gigs${search ? search : "?"}&min=${minRef.current.value}&max=${
+            maxRef.current.value
+          }&sort=${sortBy}`
+        )
+        .then((res) => setData(res.data));
+    } catch (error) {
+      setError("there is something error");
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getGigs();
+  }, [sortBy]);
 
   const handleSortBy = (type) => {
     setSortBy(type);
     setListSort(false);
+  };
+
+  const apply = () => {
+    getGigs();
   };
 
   return (
@@ -32,44 +62,44 @@ const Gigs = () => {
             />
           </svg>
           {">"}
-          <span>Graphics & Design</span>
+          <span>design</span>
           {">"}
         </p>
         <h1 className="head-title">AI Artists</h1>
         <p className="desc">
-          Explore the boundaries of art and technology with Fiverr's AI artists
+          Explore the boundaries of art and technology with {"Fiverr's"} AI
+          artists
         </p>
         <div className="row-inputs">
           <div className="budget">
             <span>budget</span>
-            <input type="text" placeholder="min" />
-            <input type="text" placeholder="max" />
-            <button className="btn-apply">Apply</button>
+            <input type="number" placeholder="min" ref={minRef} />
+            <input type="number" placeholder="max" ref={maxRef} />
+            <button className="btn-apply" onClick={apply}>
+              Apply
+            </button>
           </div>
           <div className="sort">
             <p onClick={() => setListSort(!listSort)}>
-              Sort by <span>{sortBy}</span>
+              Sort by{" "}
+              <span>{sortBy === "sales" ? "Best Selling" : "Newest"}</span>
             </p>
             {listSort && (
               <div className="list-sort">
-                {sortBy !== "Best Selling" && (
-                  <li onClick={() => handleSortBy("Best Selling")}>
-                    Best Selling
-                  </li>
+                {sortBy !== "createdAt" && (
+                  <li onClick={() => handleSortBy("createdAt")}>Newest</li>
                 )}
-                {sortBy !== "Newest Arrivals" && (
-                  <li onClick={() => handleSortBy("Newest Arrivals")}>
-                    Newest Arrivals
-                  </li>
+                {sortBy !== "sales" && (
+                  <li onClick={() => handleSortBy("sales")}>Best Selling</li>
                 )}
               </div>
             )}
           </div>
         </div>
         <div className="cards-gig">
-          {gigs.map((gig, index) => {
-            return <CardGig gig={gig} key={index} />;
-          })}
+          {!data
+            ? "Loading..."
+            : data.map((gig) => <CardGig key={gig._id} gig={gig} />)}
         </div>
       </div>
     </div>

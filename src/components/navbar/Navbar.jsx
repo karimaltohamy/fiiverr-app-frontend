@@ -1,11 +1,13 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./navbar.scss";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import newRequest from "../../utils/newRequest";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
   const [openList, setOpenList] = useState(false);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -13,10 +15,18 @@ const Navbar = () => {
     });
   });
 
-  const currentUser = {
-    id: 1,
-    user: "karim",
-    isSeller: true,
+  const currentUser = localStorage.getItem("currentUser")
+    ? JSON.parse(localStorage.getItem("currentUser"))
+    : null;
+
+  const handleLogout = async () => {
+    try {
+      await newRequest.post("/auth/logout");
+      localStorage.setItem("currentUser", null);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -32,10 +42,14 @@ const Navbar = () => {
             <Link>Explore</Link>
             <Link>English</Link>
             {!currentUser && <Link>Become a Seller</Link>}
-            {!currentUser && <Link>Sign in</Link>}
+            {!currentUser && <Link to={"/login"}>Sign in</Link>}
             {!currentUser && (
-              <Link>
-                <button className={`join ${active ? "active" : ""}`}>
+              <Link to={"/register"}>
+                <button
+                  className={`join ${
+                    active || pathname !== "/" ? "active" : ""
+                  }`}
+                >
                   Join
                 </button>
               </Link>
@@ -48,10 +62,14 @@ const Navbar = () => {
                   onClick={() => setOpenList(!openList)}
                 >
                   <img
-                    src="https://www.w3schools.com/howto/img_avatar.png"
+                    src={
+                      currentUser.img
+                        ? currentUser.img
+                        : "https://www.w3schools.com/howto/img_avatar.png"
+                    }
                     alt=""
                   />
-                  <span>karim</span>
+                  <span>{currentUser.username}</span>
                 </div>
                 {openList && (
                   <div className="list-user" onClick={() => setOpenList(false)}>
@@ -63,7 +81,7 @@ const Navbar = () => {
                     )}
                     <Link to={"/orders"}>Orders</Link>
                     <Link to={"/messagesTable"}>Messages</Link>
-                    <Link>Logout</Link>
+                    <Link onClick={handleLogout}>Logout</Link>
                   </div>
                 )}
               </div>

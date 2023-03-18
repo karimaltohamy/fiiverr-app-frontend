@@ -1,0 +1,79 @@
+.review {
+  padding-bottom: 40px;
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 20px;
+
+  .user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    > img {
+      width: 42px;
+      height: 42px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .text {
+      span {
+        font-weight: 500;
+      }
+
+      p {
+        color: gray;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: 5px;
+
+        img {
+          width: 20px;
+        }
+      }
+    }
+  }
+
+  .stars {
+    color: #ffbe5b;
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    margin-top: 10px;
+
+    svg {
+      width: 15px;
+      color: #ffbe5b;
+    }
+  }
+
+  .desc {
+    font-size: 15px;
+    line-height: 1.5;
+    color: gray;
+    margin-top: 15px;
+  }
+
+  .helpful-thumbs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+
+    span {
+      color: #555;
+      font-weight: 500;
+    }
+
+    .react-icon {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      svg {
+        width: 20px;
+      }
+    }
+  }
+}

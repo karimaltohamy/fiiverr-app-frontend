@@ -14,13 +14,23 @@ import Footer from "./components/footer/Footer";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./index.scss";
 import MyGig from "./pages/myGig/MyGig";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from "react-query";
+const queryClient = new QueryClient();
 
 const Layout = () => {
   return (
     <Fragment>
-      <Navbar />
-      <Outlet />
-      <Footer />
+      <QueryClientProvider client={queryClient}>
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </QueryClientProvider>
     </Fragment>
   );
 };
