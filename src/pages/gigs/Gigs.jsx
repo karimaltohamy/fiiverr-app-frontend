@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-key */
 import React, { useEffect, useRef, useState } from "react";
-import { useQuery } from "react-query";
 import { useLocation } from "react-router-dom";
 import CardGig from "../../components/cardGig/CardGig";
 import newRequest from "../../utils/newRequest";

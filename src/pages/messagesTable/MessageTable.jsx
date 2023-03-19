@@ -1,9 +1,33 @@
+/* eslint-disable react/jsx-key */
 import React from "react";
 import "./messageTable.scss";
+import newRequest from "../../utils/newRequest";
+import moment from "moment";
+import { Link } from "react-router-dom";
+import { useQuery } from "react-query";
 
 const MessageTable = () => {
-  const message =
-    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa veniam nesciunt doloremque tenetur architecto et ipsum nulla id asperiores quos, temporibus eaque, quidem beatae? Praesentium minima laboriosam asperiores maxime repellendus.";
+
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+  const { isLoading, error, data, refetch } = useQuery({
+    queryKey: ["conversations"],
+    queryFn: () =>
+      newRequest.get(`/conversations`).then((res) => {
+        return res.data;
+      }),
+  });
+
+  
+  const handleRead = async(id) => {
+    try {
+      await newRequest.put(`/conversations/${id}`)
+      refetch()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div className="messages-table">
       <div className="container">
@@ -13,55 +37,47 @@ const MessageTable = () => {
         <table>
           <thead>
             <tr>
-              <th>Buyer</th>
+              <th>{currentUser.isSeller ? "buyer" : "seller"}</th>
               <th>Last Message</th>
               <th>Date</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr className="active">
-              <td>
-                <span>Maria Anders</span>
-              </td>
-              <td>
-                <p>{message.slice(0, 100)}...</p>
-              </td>
-              <td>
-                <p>1 hour ago</p>
-              </td>
-              <td>
-                <button>Mark as Read</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span>Maria Anders</span>
-              </td>
-              <td>
-                <p>{message.slice(0, 100)}...</p>
-              </td>
-              <td>
-                <p>1 hour ago</p>
-              </td>
-              <td>
-                <button>Mark as Read</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span>Maria Anders</span>
-              </td>
-              <td>
-                <p>{message.slice(0, 100)}...</p>
-              </td>
-              <td>
-                <p>1 hour ago</p>
-              </td>
-              <td>
-                <button>Mark as Read</button>
-              </td>
-            </tr>
+            {isLoading ? "Loading" : error ? "something error" : 
+            data.map((c, index) => {
+              return (
+                <tr
+                  key={index}
+                  className={
+                    ((!currentUser.isSeller && !c.readByBuyer) ||
+                      (currentUser.isSeller && !c.readBySeller)) 
+                      ? "active" : ""
+                   }
+                >
+                  <td>
+                    <span>
+                      {currentUser.isSeller ? c.buyerId : c.sellerId}
+                    </span>
+                  </td>
+                  <td>
+                    <Link to={`/message/${c.id}`}>
+                      { c.lastMessage && c.lastMessage.slice(0, 100)}...
+                    </Link>
+                  </td>
+                  <td>
+                    <p>{moment(c.updatedAt).fromNow()}</p>
+                  </td>
+                  <td>
+                    {((currentUser.isSeller && !c.readBySeller) ||
+                      (!currentUser.isSeller && !c.readByBuyer)) && (
+                        <button onClick={() => handleRead(c.id)}>Mark as Read</button>
+                      )}
+                  </td>
+                </tr>
+              );
+            })
+              }
           </tbody>
         </table>
       </div>
