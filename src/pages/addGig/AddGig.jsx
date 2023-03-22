@@ -121,14 +121,6 @@ const AddGig = () => {
                 onChange={(e) => handleChange(e)}
               ></textarea>
             </div>
-
-            <button
-              type="submit"
-              className="btn-create"
-              onClick={handleCreateGig}
-            >
-              Create
-            </button>
           </div>
           <div className="right">
             <div className="input-item">
@@ -216,6 +208,13 @@ const AddGig = () => {
                 onChange={(e) => handleChange(e)}
               />
             </div>
+            <button
+              type="submit"
+              className="btn-create"
+              onClick={handleCreateGig}
+            >
+              Create
+            </button>
           </div>
         </form>
       </div>

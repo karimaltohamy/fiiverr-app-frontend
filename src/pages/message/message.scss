@@ -102,3 +102,50 @@
     }
   }
 }
+
+
+@media(max-width: 768px) {
+  .message {
+
+    .container {
+      margin: 20px 0;
+
+      .messages {
+        margin: 15px 0;
+        padding: 10px;
+        gap: 10px;
+        height: 270px;
+
+        .item {
+
+          .image {
+            img {
+              width: 25px;
+              height: 25px;
+            }
+          }
+
+          p {
+              padding: 8px;
+              font-size: 12px;
+          }
+        }
+      }
+
+      .write {
+        gap: 15px;
+
+        button {
+          height: 38px;
+          padding: 0 14px;
+          width: auto;
+        }
+
+        textarea {
+          height: 38px;
+          padding: 7px;
+        }
+      }
+    }
+  }
+}

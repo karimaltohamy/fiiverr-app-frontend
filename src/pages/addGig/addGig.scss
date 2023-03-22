@@ -125,3 +125,66 @@
     }
   }
 }
+
+@media(max-width: 768px) {
+  .add-gig {
+
+    .container {
+
+      .title {
+        font-size: 20px;
+      }
+
+      .row {
+        margin-top: 15px;
+        flex-direction: column;
+        gap: 15px;
+
+        .images {
+          flex-direction: column;
+          align-items: start;
+          margin-bottom: 10px;
+
+          .images-inputs {
+            width: 100%;
+          }
+
+          .btn-upload {
+            padding: 5px 15px;
+            font-size: 14px;
+          }
+        }
+
+        .features {
+
+          .btn-add {
+            padding: 4px 20px;
+          }
+        }
+
+        .input-item {
+          gap: 5px;
+          margin-bottom: 12px;
+
+          label {
+            font-size: 15px;
+          }
+
+          input,select, textarea {
+            padding: 4px 7px;
+            font-size: 13px;
+          }
+
+          textarea {
+            height: 120px;
+          }
+        }
+
+        .btn-create {
+          font-size: 15px;
+          height: 30px;
+        }
+      }
+    }
+  }
+}

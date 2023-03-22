@@ -70,7 +70,7 @@ const Orders = () => {
                           <span>{order.price}</span>
                         </td>
                         <td>
-                          <button onClick={() => handleConect(order)}>
+                          <button onClick={() => handleConect(order)} className="icon-message">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"

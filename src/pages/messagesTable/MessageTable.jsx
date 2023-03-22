@@ -34,52 +34,59 @@ const MessageTable = () => {
         <div className="head">
           <h2>Messages</h2>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>{currentUser.isSeller ? "buyer" : "seller"}</th>
-              <th>Last Message</th>
-              <th>Date</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {isLoading ? "Loading" : error ? "something error" : 
-            data.map((c, index) => {
-              return (
-                <tr
-                  key={index}
-                  className={
-                    ((!currentUser.isSeller && !c.readByBuyer) ||
-                      (currentUser.isSeller && !c.readBySeller)) 
-                      ? "active" : ""
-                   }
-                >
-                  <td>
-                    <span>
-                      {currentUser.isSeller ? c.buyerId : c.sellerId}
-                    </span>
-                  </td>
-                  <td>
-                    <Link to={`/message/${c.id}`}>
-                      { c.lastMessage && c.lastMessage.slice(0, 100)}...
-                    </Link>
-                  </td>
-                  <td>
-                    <p>{moment(c.updatedAt).fromNow()}</p>
-                  </td>
-                  <td>
-                    {((currentUser.isSeller && !c.readBySeller) ||
-                      (!currentUser.isSeller && !c.readByBuyer)) && (
-                        <button onClick={() => handleRead(c.id)}>Mark as Read</button>
-                      )}
-                  </td>
-                </tr>
-              );
-            })
-              }
-          </tbody>
-        </table>
+        <div className="content">
+          <table>
+            <thead>
+              <tr>
+                <th>{currentUser.isSeller ? "buyer" : "seller"}</th>
+                <th>Last Message</th>
+                <th>Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {isLoading
+                ? "Loading"
+                : error
+                ? "something error"
+                : data.map((c, index) => {
+                    return (
+                      <tr
+                        key={index}
+                        className={
+                          (!currentUser.isSeller && !c.readByBuyer) ||
+                          (currentUser.isSeller && !c.readBySeller)
+                            ? "active"
+                            : ""
+                        }
+                      >
+                        <td>
+                          <span>
+                            {currentUser.isSeller ? c.buyerId : c.sellerId}
+                          </span>
+                        </td>
+                        <td>
+                          <Link to={`/message/${c.id}`}>
+                            {c.lastMessage && c.lastMessage.slice(0, 100)}...
+                          </Link>
+                        </td>
+                        <td>
+                          <p>{moment(c.updatedAt).fromNow()}</p>
+                        </td>
+                        <td>
+                          {((currentUser.isSeller && !c.readBySeller) ||
+                            (!currentUser.isSeller && !c.readByBuyer)) && (
+                            <button onClick={() => handleRead(c.id)}>
+                              Mark as Read
+                            </button>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

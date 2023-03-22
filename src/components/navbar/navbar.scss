@@ -105,7 +105,7 @@
       white-space: nowrap;
 
       &::-webkit-scrollbar {
-        height: 7px;
+        height: 4px;
       }
 
       &::-webkit-scrollbar-track {
@@ -142,7 +142,7 @@
         }
 
         .links {
-          > a {
+          > a:not(:nth-last-child(1),:nth-last-child(2) ) {
             display: none;
           }
         }

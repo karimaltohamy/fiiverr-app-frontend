@@ -33,6 +33,17 @@
               color: #e9000ee0;
             }
           }
+
+          .icon-message {
+            background-color: rgb(3, 77, 205);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+
+            svg {
+                color: white;
+            }
+          }
         }
 
         &:nth-child(even) {
@@ -45,7 +56,7 @@
 
  @media(max-width: 768px) {
 
-.content {
+    .content {
         overflow: auto;
 
          &::-webkit-scrollbar {
@@ -64,10 +75,11 @@
 
         table {
           white-space: nowrap;
+          margin-top: 15px !important;
 
           th, td {
-            padding: 10px 10px;
+            padding: 10px 10px !important;
           }
         }
       }
-}
+    }

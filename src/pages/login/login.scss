@@ -31,3 +31,17 @@
     display: block;
   }
 }
+
+@media(max-width: 768px) {
+  .login {
+    margin: 20px auto;
+
+    .container {
+      
+      h1 {
+        font-size: 25px;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
