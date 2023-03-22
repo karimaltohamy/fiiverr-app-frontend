@@ -13,7 +13,7 @@ import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./index.scss";
-import MyGig from "./pages/myGig/MyGig";
+import MyGigs from "./pages/myGigs/MyGigs";
 import {
   useQuery,
   useMutation,
@@ -21,6 +21,8 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "react-query";
+import Pay from "./pages/Pay/Pay";
+import Success from "./pages/success/Success";
 const queryClient = new QueryClient();
 
 const Layout = () => {
@@ -77,8 +79,16 @@ const router = createBrowserRouter([
         element: <Message />,
       },
       {
-        path: "myGig",
-        element: <MyGig />,
+        path: "myGigs",
+        element: <MyGigs />,
+      },
+      {
+        path: "pay/:id",
+        element: <Pay />,
+      },
+      {
+        path: "success",
+        element: <Success />,
       },
     ],
   },

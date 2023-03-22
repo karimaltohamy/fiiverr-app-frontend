@@ -249,3 +249,225 @@
     }
   }
 }
+
+@media(max-width: 768px) {
+  .gig {
+
+    .content {
+      flex-direction: column;
+      gap: 20px;
+
+      .left {
+        .path {
+          font-size: 15px;
+        }
+
+        .head-title {
+          font-size: 19px;
+          margin: 10px 0;
+        }
+
+        .seller-overview {
+
+          .stars {
+
+            svg {
+              width: 14px;
+            }
+          }
+        }
+
+        .slider-gig {
+          img {
+            object-fit: cover;
+          }
+        }
+
+        .about-gig {
+          margin: 20px 0 30px;
+
+          h3 {
+            margin-bottom: 8px;
+          }
+
+          p {
+            font-size: 13px;
+          }
+        }
+
+        .about-seller {
+
+          h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+          }
+
+          .info {
+            img {
+              width: 50px;
+              height: 50px;
+            }
+
+            .text {
+
+              .btn-contact {
+                font-size: 11px;
+                padding: 3px;
+              }
+            }
+          }
+        }
+
+        .profile-info {
+          padding: 15px;
+
+          .user-state {
+            gap: 10px;
+
+            .item {
+              span {
+                font-size: 12px;
+              }
+
+              p {
+                font-size: 13px;
+              }
+            }
+          }
+
+          .user-desc {
+            padding: 10px 0 0;
+
+            p {
+              font-size: 13px;
+            }
+          }
+        }
+
+        .reviews {
+          margin-top: 35px;
+
+          h3 {
+            font-size: 17px;
+          }
+
+          .review {
+            padding-bottom: 20px;
+            margin-bottom: 15px;
+
+            .user {
+
+             > img {
+                width: 35px;
+                height: 35px;
+              }
+
+              .text {
+                span {
+                  font-size: 14px;
+                }
+
+                p {
+                  font-size: 13px;
+                }
+              }
+            }
+
+            .stars {
+              margin-top: 5px;
+              font-size: 14px;
+
+              svg {
+                width: 13px;
+              }
+            }
+
+            .desc {
+              font-size: 12px;
+            }
+
+            .helpful-thumbs {
+              margin-top: 10px;
+
+              span {
+                font-size: 14px;
+              }
+
+              .react-icon {
+                font-size: 14px;
+
+                svg {
+                  font-size: 13px;
+                }
+              }
+            }
+          }
+
+          .add-review {
+            margin-top: 0;
+
+            .inputs {
+              input {
+                padding: 6px;
+                font-size: 14px;
+              }
+
+              select {
+                padding: 6px 25px;
+              }
+            }
+
+            .btn-addRev {
+              padding: 6px 10px;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+
+      .right {
+
+        .sidebar-content {
+          padding: 15px;
+
+          .desc {
+            margin: 15px 0;
+            font-size: 13px;
+          }
+
+          .additional-info {
+
+            .delivery-wrapper, 
+            .revisions-wrapper {
+              svg {
+                width: 17px;
+              }
+
+              span {
+                font-size: 14px;
+              }
+            }
+          }
+
+          .features {
+            margin-top: 15px;
+
+            .feature {
+              font-size: 12px;
+
+              svg {
+                width: 17px;
+              }
+            }
+          }
+
+          .btn-continue {
+            font-size: 15px;
+            padding: 7px;
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+  }
+}

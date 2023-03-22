@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./cardGig.scss";
 
 const CardGig = ({ gig }) => {
+
   return (
     <Link to={`/gigs/${gig._id}`} className="card-gig">
       <img src={gig.cover} alt="" />
@@ -10,9 +11,9 @@ const CardGig = ({ gig }) => {
         <img src={gig.userId.img} alt="" />
         <span>{gig.userId.username}</span>
       </div>
-      <p className="desc-card">{gig.title}</p>
+      <p className="desc-card">{gig.title.slice(0, 60)}...</p>
       <div className="rating">
-        {Array(Math.round(gig.totalStars / gig.starNumber))
+        {Array(Math.round(gig.totalStars / gig.starNumber) || 1)
           .fill("")
           .map((_, index) => {
             return (
@@ -31,7 +32,7 @@ const CardGig = ({ gig }) => {
               </svg>
             );
           })}
-        {Math.round(gig.totalStars / gig.starNumber)}
+        {Math.round(gig.totalStars / gig.starNumber) || 1}
       </div>
       <div className="footer-card">
         <svg

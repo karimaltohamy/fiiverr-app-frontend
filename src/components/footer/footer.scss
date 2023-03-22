@@ -5,10 +5,12 @@
     padding: 60px 0;
 
     .rows {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 30px;
 
       .col {
+
         h3 {
           color: #444;
           font-weight: 500;
@@ -61,5 +63,52 @@
         }
       }
     }
+  }
+}
+
+@media(max-width:768px) {
+
+  .footer {
+     .footer-top {
+      padding: 30px 0;
+
+      .rows {
+        gap: 15px;
+
+        .col {
+          h3 {
+            font-size: 17px;
+          }
+
+          p {
+            margin-top: 13px;
+            font-size: 14px;
+          }
+        }
+      }
+     }
+     
+     .footer-bottom {
+      padding: 15px 0;
+      flex-direction: column;
+
+      .footer-left {
+        flex-direction: column;
+        gap: 0;
+        margin-bottom: 10px;
+
+        svg {
+          width: 75px;
+        }
+
+        p {
+          font-size: 14px;
+        }
+      }
+
+      .footer-right {
+        gap: 8px;
+      }
+     }
   }
 }

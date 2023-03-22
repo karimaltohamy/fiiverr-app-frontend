@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^2.0.0",
+    "@stripe/stripe-js": "^1.49.0",
     "axios": "^1.3.4",
     "date-fns": "^2.29.3",
     "infinite-react-carousel": "^1.2.11",

@@ -101,10 +101,64 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
+      overflow: auto;
+      white-space: nowrap;
 
-      .div {
+      &::-webkit-scrollbar {
+        height: 7px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: rgb(223, 223, 223);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        border-radius: 30px;
+      }
+
+
+      div {
         color: gray;
+        margin: 0 15px;
       }
     }
   }
 }
+
+
+// mobile
+
+@media(max-width: 768px) {
+  .navbar {
+    padding: 0;
+
+    .nav-top  {
+      .container {
+        padding: 5px 20px;
+
+        .logo {
+          font-size: 21px !important;
+        }
+
+        .links {
+          > a {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .nav-bottom {
+
+      .container {
+
+        div {
+          margin: 0px 10px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+

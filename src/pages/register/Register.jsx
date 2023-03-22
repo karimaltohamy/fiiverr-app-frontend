@@ -15,36 +15,48 @@ const Register = () => {
     country: "",
     img: "",
     phone: "",
-    isSeller: "",
+    isSeller: false,
   });
   const [file, setFile] = useState();
+  const [error, setError] = useState("")
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setUser((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
-    console.log(e.target.name, e.target.value);
   };
 
   const handleChangeCheck = (e) => {
     setUser((prev) => {
-      return { ...prev, isSeller: e.target.checked };
+      return { ...prev, isSeller: e.target.checked ? e.target.checked : false };
     });
+    console.log(e.target.checked )
   };
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    console.log({ ...user, img: await upload(file) });
+    let url = ""
+
 
     try {
+      if (file) {
+         url = await upload(file)
+      }
+
       const { data } = await newRequest.post("/auth/register", {
         ...user,
-        img: await upload(file),
+        img: url,
       });
+      console.log(data)
       navigate("/login");
+
     } catch (error) {
       console.log(error);
+      if (error.response.status === 400) {  
+        setError("`username` is required., email: Path `email` is required., country: Path `country` is required.")
+      }
+      
     }
   };
 
@@ -116,6 +128,7 @@ const Register = () => {
             />
           </div>
         </form>
+        {error && <div className="error">{error}</div>}
       </div>
     </div>
   );

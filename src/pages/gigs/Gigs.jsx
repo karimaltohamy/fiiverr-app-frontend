@@ -15,6 +15,7 @@ const Gigs = () => {
   const [error, setError] = useState();
 
   const getGigs = () => {
+    
     try {
       newRequest
         .get(

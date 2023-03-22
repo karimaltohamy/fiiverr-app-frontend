@@ -17,6 +17,24 @@
   }
 }
 
+@media(max-width: 768px) {
+  .trusted-by-wrapper {
+    padding: 15px 0;
+
+    .content {
+      gap: 15px;
+
+      span {
+        display: none;
+      }
+
+      div:last-child {
+        display: none;
+      }
+    }
+  }
+}
+
 .selling-proposition {
   padding: 100px 0;
   background-color: #f1fdf7;
@@ -78,6 +96,49 @@
 
       video {
         width: 720px;
+      }
+    }
+  }
+}
+
+@media(max-width: 1160px) {
+  .selling-proposition {
+    padding: 50px 0;
+
+    .container {
+      flex-direction: column;
+      gap: 30px;
+
+      .left {
+
+        h1 {
+          font-size: 21px;
+        }
+
+        .item {
+          
+          .head {
+            .icon {
+              width: 20px;
+            }
+
+            h4 {
+              font-size: 18px;
+            }
+          }
+
+          p {
+            font-size: 14px;
+          }
+
+        }
+      }
+
+      .right {
+        video {
+          width: 100%;
+          max-width: 100%;
+        }
       }
     }
   }
@@ -157,7 +218,60 @@
   }
 }
 
+@media(max-width: 800px) {
+  .fib-banner {
+    padding: 50px 0;
+
+    .container {
+      flex-direction: column;
+      gap: 40px;
+
+      .left {
+
+        svg {
+          width: 165px;
+        }
+
+        h2 {
+          margin: 15px 0 10px;
+          font-size: 25px;
+        }
+
+         p {
+          font-size: 14px !important;
+        }
+
+        .item {
+
+          .icon {
+            width: 18px;
+          }
+        }
+
+        .btn-banner {
+          margin-top: 10px;
+          font-size: 14px;
+          padding: 8px 18px;
+        }
+      }
+
+    }
+  }
+}
+
 .made-on-fiverr {
   background-color: #f5f5f5;
-  padding: 50px 0;
+  padding: 30px 0;
+}
+
+@media(max-width: 768px) {
+
+  .made-on-fiverr {
+
+    .slide {
+      h1 {
+        font-size: 23px;
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/jsx-key */
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Hero from "../../components/hero/Hero";
 import SliderSection from "../../components/SliderSection/SliderSection";
 import { cards, projects } from "../../data";
@@ -17,6 +17,34 @@ import bannerImg from "../../assets/images/business-desktop-870-x1.webp";
 import ProjectCard from "../../components/projectCard/ProjectCard";
 
 const Home = () => {
+  const [slidesToShow, setSlidesToShow] = useState(5);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+
+       if (width < 470) {
+         setSlidesToShow(1);
+       }else if (width >= 470 &&  width < 700) {
+         setSlidesToShow(2);
+       }else if (width >= 700 && width < 868) {
+        setSlidesToShow(3);
+      } else if (width >= 868 && width < 1100) {
+        setSlidesToShow(4);
+      } else {
+        setSlidesToShow(5);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+
+
   return (
     <Fragment>
       <Hero />
@@ -44,7 +72,11 @@ const Home = () => {
       </div>
       <div className="Popular-services">
         <div className="container">
-          <SliderSection slidesToShow={5} arrowsScroll={5} className={"w-100"}>
+          <SliderSection
+            slidesToShow={slidesToShow}
+            arrowsScroll={slidesToShow}
+            className={"w-100"}
+          >
             {cards.map((card, index) => {
               return <CardSlider key={index} card={card} />;
             })}
@@ -274,8 +306,8 @@ const Home = () => {
       <div className="made-on-fiverr">
         <div className="container">
           <SliderSection
-            slidesToShow={4}
-            arrowsScroll={4}
+            slidesToShow={slidesToShow}
+            arrowsScroll={slidesToShow}
             title={"Get inspired with projects made by our freelancers"}
             className={"w-100"}
           >

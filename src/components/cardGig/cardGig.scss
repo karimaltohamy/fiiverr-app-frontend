@@ -82,3 +82,34 @@
     }
   }
 }
+
+
+@media(max-width: 768px) {
+  .card-gig {
+    height: 320px;
+    
+    .inner-wrapper {
+      padding: 7px 12px 5px;
+    }
+
+    .desc-card {
+      font-size: 15px;
+    }
+
+    .rating {
+      padding: 5px 12px 5px;
+    }
+
+    .footer-card {
+      padding: 7px 12px;
+
+      p {
+        font-size: 13px;
+
+        span {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}

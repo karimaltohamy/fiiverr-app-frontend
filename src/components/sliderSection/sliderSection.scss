@@ -33,3 +33,13 @@
     margin: auto;
   }
 }
+
+
+@media(max-width: 768px) {
+  .slide {
+
+    .carousel-track {
+    height: 290px !important;
+  }
+  }
+}

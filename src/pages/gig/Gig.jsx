@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 import React from "react";
 import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import SliderSection from "../../components/SliderSection/SliderSection";
 import newRequest from "../../utils/newRequest";
 import "./gig.scss";
@@ -16,7 +16,7 @@ const Gig = () => {
     error,
     data: gig,
   } = useQuery({
-    queryKey: ["gigs"],
+    queryKey: ["gig"],
     queryFn: () => newRequest.get(`/gigs/single/${id}`).then((res) => res.data),
   });
 
@@ -60,7 +60,7 @@ const Gig = () => {
                 />
                 <span>{gig.userId.username}</span>
                 <div className="stars">
-                  {Array(Math.round(gig.totalStars / gig.starNumber))
+                  {Array(Math.round(gig.totalStars / gig.starNumber) || 1)
                     .fill("")
                     .map((_, index) => {
                       return (
@@ -79,7 +79,7 @@ const Gig = () => {
                         </svg>
                       );
                     })}
-                  {Math.round(gig.totalStars / gig.starNumber)}
+                  {Math.round(gig.totalStars / gig.starNumber) || 1}
                 </div>
               </div>
               <div className="slider-gig">
@@ -101,7 +101,7 @@ const Gig = () => {
                   <div className="text">
                     <span>{gig.userId.username}</span>
                     <div className="stars">
-                      {Array(Math.round(gig.totalStars / gig.starNumber))
+                      {Array(Math.round(gig.totalStars / gig.starNumber) || 1)
                         .fill("")
                         .map((_, index) => {
                           return (
@@ -198,8 +198,9 @@ const Gig = () => {
                     );
                   })}
                 </div>
-
-                <button className="btn-continue">Continue</button>
+                <Link to={`/pay/${id}`}>
+                  <button className="btn-continue">Continue</button>
+                </Link>
               </div>
             </div>
           </div>

@@ -43,6 +43,7 @@
           display: flex;
           align-items: center;
           gap: 5px;
+        
 
           svg {
             width: 25px !important;
@@ -56,6 +57,7 @@
             width: 100%;
             font-size: 17px;
             font-weight: 500;
+            outline: none;
           }
         }
 
@@ -70,6 +72,7 @@
           border-bottom-right-radius: 6px;
           display: block;
           border: none;
+          cursor: pointer;
         }
       }
 
@@ -95,6 +98,49 @@
     }
   }
 }
+
+@media(max-width: 768px) {
+  .hero {
+    height: 500px;
+
+    .container {
+
+      .left {
+        width: 100%;
+        text-align: center;
+
+        h1 {
+          font-size: 30px;
+          font-weight: 500;
+        }
+
+        .search {
+          display: block;
+
+          .input {
+            border-radius: 6px;
+            height: 45px;
+          }
+
+          button {
+            margin-top: 8px;
+            width: 100%;
+            border-radius: 6px;
+            height: 45px;
+          }
+        }
+
+        .popular {
+          display: none;
+        }
+      }
+    }
+    
+  }
+}
+
+
+
 
 @keyframes slide {
   25% {

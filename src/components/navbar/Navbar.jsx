@@ -75,7 +75,7 @@ const Navbar = () => {
                   <div className="list-user" onClick={() => setOpenList(false)}>
                     {currentUser.isSeller && (
                       <Fragment>
-                        <Link to={"/gigs"}>Gigs</Link>
+                        <Link to={"/myGigs"}>My Gigs</Link>
                         <Link to={"/addGig"}>Add New Gig</Link>
                       </Fragment>
                     )}
@@ -83,6 +83,7 @@ const Navbar = () => {
                     <Link to={"/messagesTable"}>Messages</Link>
                     <Link onClick={handleLogout}>Logout</Link>
                   </div>
+                  
                 )}
               </div>
             )}

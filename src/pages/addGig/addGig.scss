@@ -18,6 +18,69 @@
       flex: 1;
     }
 
+    .images {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .btn-upload {
+        padding: 8px 15px ;
+        border: none;
+        background-color: #1dbf73;
+        border-radius: 3px;
+        color: white;
+        font-weight: 500;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    }
+
+    .features {
+
+      div {
+        display: flex;
+        gap: 15px;
+
+        input {
+          width: 100%;
+        }
+      
+        .btn-add {
+          padding: 10px 20px;
+          border: none;
+          background-color: #1dbf73;
+          border-radius: 3px;
+          color: white;
+          font-weight: 500;
+          font-size: 16px;
+          cursor: pointer;
+        }
+      }
+
+      .values {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 10px;
+              flex-wrap: wrap;
+
+          span {
+            padding: 4px 8px;
+            border: 1px solid rgb(201, 201, 201);
+            border-radius: 3px;
+            color: gray;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            svg {
+              width: 18px;
+              cursor: pointer;
+            }
+          }
+        }
+    }
+
     .input-item {
       display: flex;
       flex-direction: column;
@@ -36,6 +99,7 @@
         font-size: 16px;
         border: 1px solid rgb(187, 187, 187);
         border-radius: 3px;
+        resize: none;
       }
 
       .long-desc {
@@ -44,6 +108,7 @@
 
       .short-desc {
         height: 100px;
+        resize: none;
       }
     }
 
@@ -56,6 +121,7 @@
       font-weight: 600;
       font-size: 16px;
       border: none;
+      cursor: pointer;
     }
   }
 }
