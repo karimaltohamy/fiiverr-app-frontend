@@ -174,7 +174,7 @@ const AddGig = () => {
                   </button>
                 </div>
               </div>
-
+ 
               <div className="values">
                 {state.addFeatures &&
                   state.addFeatures.map((feature, index) => (

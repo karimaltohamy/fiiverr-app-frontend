@@ -8,7 +8,7 @@ import "./register.scss";
 
 const Register = () => {
   const [user, setUser] = useState({
-    username: "",
+    username: "", 
     email: "",
     password: "",
     desc: "",
@@ -97,7 +97,6 @@ const Register = () => {
               placeholder={"write your country"}
               handleChange={handleChange}
             />
-            <button className="btn-register">Register</button>
           </div>
           <div className="right">
             <h1>I want to become a seller</h1>
@@ -126,6 +125,7 @@ const Register = () => {
               placeholder={"short description of yourself"}
               handleChange={handleChange}
             />
+            <button className="btn-register">Register</button>
           </div>
         </form>
         {error && <div className="error">{error}</div>}

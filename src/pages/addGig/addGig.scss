@@ -62,7 +62,7 @@
           align-items: center;
           gap: 10px;
           margin-bottom: 10px;
-              flex-wrap: wrap;
+          flex-wrap: wrap;
 
           span {
             padding: 4px 8px;
@@ -81,36 +81,6 @@
         }
     }
 
-    .input-item {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 20px;
-
-      label {
-        font-size: 18px;
-        color: gray;
-      }
-
-      input,
-      select,
-      textarea {
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid rgb(187, 187, 187);
-        border-radius: 3px;
-        resize: none;
-      }
-
-      .long-desc {
-        height: 270px;
-      }
-
-      .short-desc {
-        height: 100px;
-        resize: none;
-      }
-    }
 
     .btn-create {
       width: 100%;
@@ -159,24 +129,6 @@
 
           .btn-add {
             padding: 4px 20px;
-          }
-        }
-
-        .input-item {
-          gap: 5px;
-          margin-bottom: 12px;
-
-          label {
-            font-size: 15px;
-          }
-
-          input,select, textarea {
-            padding: 4px 7px;
-            font-size: 13px;
-          }
-
-          textarea {
-            height: 120px;
           }
         }
 

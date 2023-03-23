@@ -142,8 +142,19 @@
         }
 
         .links {
-          > a:not(:nth-last-child(1),:nth-last-child(2) ) {
+          gap: 10px;
+
+          > a {
+            font-size: 15px;
+
+            &:not(:nth-last-child(1),:nth-last-child(2) ) {
             display: none;
+            }
+
+            .join {
+              padding: 6px;
+              font-size: 13px;
+            }
           }
         }
       }

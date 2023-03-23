@@ -42,6 +42,30 @@
         font-size: 25px;
         margin-bottom: 15px;
       }
+    
+      form {
+
+        .input-item{
+          margin-bottom: 15px;
+          gap: 5px;
+
+          label {
+            font-size: 14px;
+          }
+
+          input {
+            padding: 5px 10px;
+            font-size: 13px;
+          }
+        }
+
+        .btn-login {
+          height: 30px;
+          font-size: 14px;
+        }
+      }
+
+    
     }
   }
 }
