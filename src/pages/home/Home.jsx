@@ -16,6 +16,16 @@ import CardSlider from "../../components/cardSlider/CardSlider";
 import bannerImg from "../../assets/images/business-desktop-870-x1.webp";
 import ProjectCard from "../../components/projectCard/ProjectCard";
 
+import { Navigation } from "swiper";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
+import { Link } from "react-router-dom";
+
 const Home = () => {
   const [slidesToShow, setSlidesToShow] = useState(5);
 
@@ -23,11 +33,11 @@ const Home = () => {
     const handleResize = () => {
       const width = window.innerWidth;
 
-       if (width < 470) {
-         setSlidesToShow(1);
-       }else if (width >= 470 &&  width < 700) {
-         setSlidesToShow(2);
-       }else if (width >= 700 && width < 868) {
+      if (width < 470) {
+        setSlidesToShow(1);
+      } else if (width >= 470 && width < 700) {
+        setSlidesToShow(2);
+      } else if (width >= 700 && width < 868) {
         setSlidesToShow(3);
       } else if (width >= 868 && width < 1100) {
         setSlidesToShow(4);
@@ -42,8 +52,6 @@ const Home = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-
 
   return (
     <Fragment>
@@ -72,15 +80,32 @@ const Home = () => {
       </div>
       <div className="Popular-services">
         <div className="container">
-          <SliderSection
-            slidesToShow={slidesToShow}
-            arrowsScroll={slidesToShow}
-            className={"w-100"}
+          <Swiper
+            // install Swiper modules
+            modules={[Navigation]}
+            spaceBetween={20}
+            slidesPerView={5}
+            navigation
+            loop={true}
           >
             {cards.map((card, index) => {
-              return <CardSlider key={index} card={card} />;
+              return (
+                <SwiperSlide key={index}>
+                  <Link
+                    to="/gigs?cat=design"
+                    className="card-slider"
+                    key={card.id}
+                  >
+                    <img src={card.img} alt="" />
+                    <div className="text">
+                      <p>{card.desc}</p>
+                      <h3>{card.title}</h3>
+                    </div>
+                  </Link>
+                </SwiperSlide>
+              );
             })}
-          </SliderSection>
+          </Swiper>
         </div>
       </div>
       <div className="selling-proposition">
@@ -305,16 +330,29 @@ const Home = () => {
       </div>
       <div className="made-on-fiverr">
         <div className="container">
-          <SliderSection
-            slidesToShow={slidesToShow}
-            arrowsScroll={slidesToShow}
-            title={"Get inspired with projects made by our freelancers"}
-            className={"w-100"}
+          <Swiper
+            // install Swiper modules
+            modules={[Navigation]}
+            spaceBetween={20}
+            slidesPerView={4}
+            navigation
+            loop={true}
           >
             {projects.map((project, index) => {
-              return <ProjectCard key={index} project={project} />;
+              return (
+                <SwiperSlide className="project-card" key={index}>
+                  <img className="img-cover" src={project?.img} alt="" />
+                  <div className="info">
+                    <img className="profile" src={project.pp} alt="" />
+                    <div className="text">
+                      <h3 className="cat">{project.cat}</h3>
+                      <span>{project.username}</span>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              )
             })}
-          </SliderSection>
+          </Swiper>
         </div>
       </div>
     </Fragment>

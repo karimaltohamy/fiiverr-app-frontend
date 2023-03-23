@@ -1,24 +1,25 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 import React from "react";
-import Slider from "infinite-react-carousel";
+import { Swiper } from "swiper/react";
+import { Navigation} from 'swiper';
+import "swiper/css";
 import "./sliderSection.scss";
+import 'swiper/css';
+import 'swiper/css/navigation';
 
-const SliderSection = ({
-  children,
-  slidesToShow,
-  arrowsScroll,
-  title,
-  className,
-}) => {
+const SliderSection = ({ children, title }) => {
   return (
     <div className="slide">
       <h1>{title && title}</h1>
-      <Slider
-        slidesToShow={slidesToShow}
-        arrowsScroll={arrowsScroll}
-        className={className && className}
+
+      <Swiper
+      modules={[Navigation]}
+      spaceBetween={10}
+      slidesPerView={5}
+      navigation
       >
         {children}
-      </Slider>
+      </Swiper>
     </div>
   );
 };
