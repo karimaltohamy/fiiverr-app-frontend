@@ -7,7 +7,7 @@
     gap: 50px;
 
     .left {
-      flex: 3;
+      width: 60%;
 
       .path {
         color: gray;
@@ -52,8 +52,15 @@
       }
 
       .slider-gig {
-        img {
-          object-fit: contain;
+        margin: 20px 0;
+
+        .swiper {
+          height: 400px;
+
+          img {
+            object-fit: contain;
+            width: 100%;
+          }
         }
       }
 
@@ -250,14 +257,15 @@
   }
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .gig {
-
     .content {
       flex-direction: column;
       gap: 20px;
 
       .left {
+        width: 100%;
+
         .path {
           font-size: 15px;
         }
@@ -268,9 +276,7 @@
         }
 
         .seller-overview {
-
           .stars {
-
             svg {
               width: 14px;
             }
@@ -296,7 +302,6 @@
         }
 
         .about-seller {
-
           h3 {
             margin-bottom: 8px;
             font-size: 18px;
@@ -309,7 +314,6 @@
             }
 
             .text {
-
               .btn-contact {
                 font-size: 11px;
                 padding: 3px;
@@ -356,8 +360,7 @@
             margin-bottom: 15px;
 
             .user {
-
-             > img {
+              > img {
                 width: 35px;
                 height: 35px;
               }
@@ -426,7 +429,6 @@
       }
 
       .right {
-
         .sidebar-content {
           padding: 15px;
 
@@ -436,8 +438,7 @@
           }
 
           .additional-info {
-
-            .delivery-wrapper, 
+            .delivery-wrapper,
             .revisions-wrapper {
               svg {
                 width: 17px;

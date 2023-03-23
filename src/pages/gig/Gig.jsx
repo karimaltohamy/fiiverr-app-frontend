@@ -2,11 +2,17 @@
 import React from "react";
 import { useQuery } from "react-query";
 import { Link, useParams } from "react-router-dom";
-import SliderSection from "../../components/SliderSection/SliderSection";
 import newRequest from "../../utils/newRequest";
-import "./gig.scss";
 import GigProfileInfo from "../../components/gigProfileInfo/GigProfileInfo";
 import Reviews from "../../components/reviews/Reviews";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
+import "./gig.scss";
+
 
 const Gig = () => {
   const { id } = useParams();
@@ -83,12 +89,22 @@ const Gig = () => {
                 </div>
               </div>
               <div className="slider-gig">
-                <SliderSection slidesToShow={1} arrowsScroll={1}>
+                <Swiper
+                  modules={[Navigation]}
+                  spaceBetween={20}
+                  slidesPerView={1}
+                  navigation
+                  loop={true}
+                >
                   {gig.images &&
                     gig.images.map((img, index) => {
-                      return <img src={img} key={index} alt="" />;
+                      return (
+                        <SwiperSlide key={index}>
+                          <img src={img} key={index} alt="" />
+                        </SwiperSlide>
+                      );
                     })}
-                </SliderSection>
+                </Swiper>
               </div>
               <div className="about-gig">
                 <h3>About this Gig</h3>

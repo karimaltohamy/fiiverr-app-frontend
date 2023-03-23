@@ -2,7 +2,6 @@
 /* eslint-disable react/jsx-key */
 import React, { Fragment} from "react";
 import Hero from "../../components/hero/Hero";
-// import SliderSection from "../../components/SliderSection/SliderSection";
 import { cards, projects } from "../../data";
 import "./home.scss";
 import "../../components/sliderSection/sliderSection.scss";
@@ -12,17 +11,15 @@ import googleImg from "../../assets/images/google.517da09.png";
 import paypalImg from "../../assets/images/paypal.ec56157.png";
 import netflix from "../../assets/images/netflix.e3ad953.png";
 import pgImg from "../../assets/images/pandg.8b7310b.png";
-// import CardSlider from "../../components/cardSlider/CardSlider";
 import bannerImg from "../../assets/images/business-desktop-870-x1.webp";
 
 
 import { Navigation } from "swiper";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+
 
 import { Link } from "react-router-dom";
 
