@@ -14,7 +14,6 @@ import Footer from "./components/footer/Footer";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./index.scss";
 import MyGigs from "./pages/myGigs/MyGigs";
-import { CookiesProvider } from "react-cookie";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Pay from "./pages/Pay/Pay";
 import Success from "./pages/success/Success";
@@ -24,11 +23,9 @@ const Layout = () => {
   return (
     <Fragment>
       <QueryClientProvider client={queryClient}>
-        <CookiesProvider>
           <Navbar />
           <Outlet />
           <Footer />
-        </CookiesProvider>
       </QueryClientProvider>
     </Fragment>
   );
