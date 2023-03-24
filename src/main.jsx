@@ -14,10 +14,8 @@ import Footer from "./components/footer/Footer";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./index.scss";
 import MyGigs from "./pages/myGigs/MyGigs";
-import {
-  QueryClient,
-  QueryClientProvider,
-} from "react-query";
+import { CookiesProvider } from "react-cookie";
+import { QueryClient, QueryClientProvider } from "react-query";
 import Pay from "./pages/Pay/Pay";
 import Success from "./pages/success/Success";
 const queryClient = new QueryClient();
@@ -93,6 +91,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CookiesProvider>
+      <RouterProvider router={router} />
+    </CookiesProvider>
   </React.StrictMode>
 );
