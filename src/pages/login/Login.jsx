@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputItem from "../../components/inputItem/InputItem";
 import newRequest from "../../utils/newRequest";
-// import { useCookies } from "react-cookie";
+import { useCookies } from "react-cookie";
 import "./login.scss";
 
 
@@ -14,7 +14,7 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    // const [cookies, setCookie] = useCookies(["token"]);
+    const [cookies, setCookie] = useCookies(["token"]);
 
     try {
       const { data } = await newRequest.post("/auth/login", {
@@ -22,8 +22,8 @@ const Login = () => {
         password,
       });
       localStorage.setItem("currentUser", JSON.stringify(data));
-      // setCookie("token", data.token, { path: "/" })
-      // console.log(cookies)
+      setCookie("token", data.token, { path: "/" })
+      console.log(cookies)
       navigate("/");
     } catch (error) {
       console.log(error.response.data);
