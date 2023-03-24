@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputItem from "../../components/inputItem/InputItem";
 import newRequest from "../../utils/newRequest";
-import { useCookies } from "react-cookie";
+// import { useCookies } from "react-cookie";
 import "./login.scss";
 
 
