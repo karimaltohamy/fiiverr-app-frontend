@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/jsx-key */
-import React, { Fragment} from "react";
+import React, { Fragment, useEffect, useState} from "react";
 import Hero from "../../components/hero/Hero";
 import { cards, projects } from "../../data";
 import "./home.scss";
@@ -24,31 +24,31 @@ import "swiper/css/navigation";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  // const [slidesToShow, setSlidesToShow] = useState(5);
+  const [slidesToShow, setSlidesToShow] = useState(5);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     const width = window.innerWidth;
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
 
-  //     if (width < 470) {
-  //       setSlidesToShow(1);
-  //     } else if (width >= 470 && width < 700) {
-  //       setSlidesToShow(2);
-  //     } else if (width >= 700 && width < 868) {
-  //       setSlidesToShow(3);
-  //     } else if (width >= 868 && width < 1100) {
-  //       setSlidesToShow(4);
-  //     } else {
-  //       setSlidesToShow(5);
-  //     }
-  //   };
+      if (width < 470) {
+        setSlidesToShow(1);
+      } else if (width >= 470 && width < 700) {
+        setSlidesToShow(2);
+      } else if (width >= 700 && width < 868) {
+        setSlidesToShow(3);
+      } else if (width >= 868 && width < 1100) {
+        setSlidesToShow(4);
+      } else {
+        setSlidesToShow(5);
+      }
+    };
 
-  //   window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize);
 
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <Fragment>
@@ -81,7 +81,7 @@ const Home = () => {
             // install Swiper modules
             modules={[Navigation]}
             spaceBetween={20}
-            slidesPerView={5}
+            slidesPerView={slidesToShow}
             navigation
             loop={true}
           >
