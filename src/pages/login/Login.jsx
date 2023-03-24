@@ -22,7 +22,8 @@ const Login = () => {
         password,
       });
       localStorage.setItem("currentUser", JSON.stringify(data));
-      setCookie("token", data.token, {path: "/"})
+      setCookie("token", data.token, { path: "/" })
+      console.log(cookies)
       navigate("/");
     } catch (error) {
       console.log(error.response.data);
