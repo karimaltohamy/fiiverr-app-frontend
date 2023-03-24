@@ -25,6 +25,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [slidesToShow, setSlidesToShow] = useState(5);
+  const [slidesToShow2, setSlidesToShow2] = useState(4);
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,14 +33,18 @@ const Home = () => {
 
       if (width < 470) {
         setSlidesToShow(1);
+        setSlidesToShow2(1)
       } else if (width >= 470 && width < 700) {
         setSlidesToShow(2);
+        setSlidesToShow2(2)
       } else if (width >= 700 && width < 868) {
         setSlidesToShow(3);
+        setSlidesToShow2(3)
       } else if (width >= 868 && width < 1100) {
         setSlidesToShow(4);
       } else {
         setSlidesToShow(5);
+        setSlidesToShow2(4)
       }
     };
 
@@ -331,7 +336,7 @@ const Home = () => {
             // install Swiper modules
             modules={[Navigation]}
             spaceBetween={20}
-            slidesPerView={4}
+            slidesPerView={slidesToShow2}
             navigation
             loop={true}
           >
